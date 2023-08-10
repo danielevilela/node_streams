@@ -105,6 +105,22 @@ const startStream = (transformStream, writeStream) => {
 startStream(transformStream, fileWriteStream);
 ```
 
+Explanation:
+
+`stream.pipe(transformStream)`: connects the query stream to the transform stream. This means that data retrieved from the database will be passed through the transformStream for processing.
+
+`transformStream.pipe(writeStream)`: connects the transform stream to the write stream. Processed data from the transform stream is then written to the specified file using the writeStream.
+
+`.on("error", console.error)`: attaches an error event listener to the pipeline. If an error occurs at any stage, it will be logged to the console.
+
+`.on("finish", () => {...})`: attaches a finish event listener to the pipeline. When the entire process of streaming, transforming, and writing is completed, this function will be executed.
+
+Inside the finish event listener, a timestamp is logged using `console.log("FINISHED: ", new Date())`, marking the completion of the data processing.
+
+`done()` is called to release the database client back to the pool, indicating that it's available for reuse.
+
+Finally, the startStream function is invoked with transformStream and fileWriteStream as arguments, effectively starting the entire data processing and writing pipeline.
+
 ### Visualizing the Process
 
 For a visual representation of the process, take a look at the the terminal:
@@ -116,6 +132,10 @@ FINISHED:  2023-08-10T05:33:24.567Z
 Done in 28.70s.
 ```
 
-A file with the name `output.csv` will be created with 1 million transformed rows !
+Also a new file with the name `output.csv` will be created with 1 million transformed rows !
 
+# Conclusion
+
+In this exercise, we've explored the power of Node.js streams and their ability to handle large amounts of data efficiently. We've learned how to use Readable, Transform, and Writable streams to read data from a PostgreSQL database, process it, and save it as a CSV file.<br/>
+By breaking down the data processing into smaller chunks, we can conserve memory and improve the overall performance of our application.<br/>
 Feel free to explore the code, experiment with different settings, and adapt it to your own projects. Happy coding!
