@@ -1,14 +1,14 @@
 {
   "name": "csv_node",
   "version": "1.0.0",
-  "description": "",
+  "description": "Processing 1 Million SQL Rows to CSV using Node.js Streams",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node streams.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Daniele Vilela",
   "license": "ISC",
   "dependencies": {
     "pg": "^8.11.2",
