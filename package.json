@@ -1,0 +1,17 @@
+{
+  "name": "csv_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node streams.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg": "^8.11.2",
+    "pg-query-stream": "^4.5.2"
+  }
+}
