@@ -42,7 +42,7 @@ export function createDatabasePool() {
 We create three types of streams to accomplish our task: a Readable stream to fetch data from the database, a Transform stream to process and format the data, and a Writable stream to save the processed data to a CSV file.
 
 To create a readable stream, you need the package
-`pg-query-stream`, which will receive result rows from pg as a readable (object) stream.
+[`pg-query-stream`](https://github.com/brianc/node-postgres/tree/master/packages/pg-query-stream), which will receive result rows from pg as a readable (object) stream.
 
 #### Readable Stream
 
